@@ -4,6 +4,9 @@ from urllib.parse import urlparse, parse_qs, unquote, quote
 import json
 import os
 
+text_decode_cache = {}
+translate_cache = {}
+
 def url_decode(encoded_str):
     """
     Decodes a URL-encoded string (percent-encoding).
@@ -88,9 +91,23 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             # Example: Access parameter 'name'
             text = query_params.get('text', ['nothing'])[0]  # Default to 'Guest'
 
-            text = url_decode(text)
+            translated = ""
             
-            translated = translate_lines(text)
+            if text in text_decode_cache and text in translate_cache:
+               new_text = text_decode_cache[text]
+               new_translated = translate_cache[text]
+               
+               text = new_text
+               translated = new_translated
+            else:
+               new_text = url_decode(text)
+               new_translated = translate_lines(new_text)
+               
+               text_decode_cache[text] = new_text
+               translate_cache[text] = new_translated
+               
+               text = new_text
+               translated = new_translated
             
             print(text)
             
