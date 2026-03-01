@@ -1,0 +1,1 @@
+"# RpgMakerMV_CheatMenuPluginPlusTranslator" 
