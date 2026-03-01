@@ -1,0 +1,8 @@
+Delete site-packages in python Directory if you get error no Vendor package rich.padding blabla
+py -3.14 -m ensurepip
+py -3.14 -m pip install legacy-cgi
+py -3.14 -m pip install googletrans==4.0.0-rc1
+
+to start the script
+
+py -3.14 translate.py
