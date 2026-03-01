@@ -1,0 +1,1 @@
+{"data":"{\"enabled\":true,\"endPointSelection\":\"custom\",\"customEndPointData\":{\"method\":\"get\",\"urlPattern\":\"http://localhost:5000/translate?text=${TEXT}\",\"body\":\"\"},\"targets\":{\"items\":false,\"variables\":true,\"switches\":true,\"maps\":true},\"bulkTranslateChunkSize\":500}"}
